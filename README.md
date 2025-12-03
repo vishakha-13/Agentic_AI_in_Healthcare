@@ -68,7 +68,8 @@ End-to-end pipeline:
 ---
 
 # 🧠 Architecture
-<img width="1024" height="1536" alt="ChatGPT Image Dec 2, 2025, 01_25_12 PM" src="https://github.com/user-attachments/assets/c7322084-50b7-4d93-9365-0ad920358f40" />
+<img width="1875" height="2250" alt="svgviewer-png-output" src="https://github.com/user-attachments/assets/e5683aac-3176-43ee-a81f-22ada8a3ba5d" />
+
 
 ---
 
