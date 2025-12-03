@@ -1,265 +1,238 @@
+# 🌟 Agentic AI for Early Sepsis Detection in ICU (MIMIC-IV)
+### **Multimodal • Fuzzy Logic • GA Optimization • LLM Reasoning**
 
-🌟 Agentic AI for Early Sepsis Detection in ICU (MIMIC-IV)
-Multimodal • Fuzzy Logic • GA Optimization • LLM Reasoning
-🚑 Overview
+---
 
-Early detection of sepsis is a life-critical problem — every hour of delay significantly increases mortality.
-Traditional methods depend on late-stage organ dysfunction (Sepsis-3 criteria), causing delays of 6–12 hours.
+## 🚑 Overview
 
-This project builds a multimodal, interpretable, agentic AI system for early ICU sepsis risk detection, using a 10,000-stay subset of the MIMIC-IV dataset.
+Early detection of sepsis is a life-critical problem — every hour of delay significantly increases mortality.  
+Traditional methods depend on **late-stage organ dysfunction (Sepsis-3)**, causing delays of 6–12 hours.
+
+This project builds a **multimodal, interpretable, agentic AI system** for early ICU sepsis risk detection using a **10,000-stay subset of MIMIC-IV**.
 
 The system integrates:
 
-📊 Time-series Vitals
+- 📊 **Time-series Vitals**
+- 🧪 **Laboratory Trends**
+- 🧬 **Fuzzy Logic Risk Scoring**
+- 🧬 **GA Optimization** (threshold tuning)
+- 🧠 **LLM Agent** (clinical reasoning + action suggestions)
+- 📝 **Clinical Notes** (discharge & radiology text)
 
-🧪 Laboratory Trends
+Unlike black-box ML models, this pipeline provides:  
+✔ Numerical predictions  
+✔ Clinically interpretable fuzzy risk  
+✔ Human-like, agentic reasoning  
 
-🧬 Fuzzy Logic Risk Scoring
+---
 
-🧬 GA Optimization (optimized thresholds)
+# ⭐ Project Highlights
 
-🧠 LLM Agent (clinical reasoning + action suggestions)
-
-📝 Clinical Notes (discharge & radiology text)
-
-Unlike black-box ML models, this pipeline provides:
-✔ Numerical predictions,
-✔ Clinically interpretable fuzzy risk, and
-✔ Human-like reasoning.
-
-⭐ Project Highlights
-🔷 1. Multimodal Data Fusion
-
+## 🔷 1. Multimodal Data Fusion
 Combines vitals, labs, demographics, diagnoses, and clinical text from MIMIC-IV.
 
-🔷 2. GA-Optimized Fuzzy Logic
+---
 
-A transparent fuzzy risk score capturing soft abnormality in HR, BP, RR, SpO₂.
+## 🔷 2. GA-Optimized Fuzzy Logic
+A transparent fuzzy risk score capturing early abnormalities in HR, BP, RR, SpO₂.
 
-Genetic Algorithm tunes:
+**Genetic Algorithm tunes:**
+- High HR threshold  
+- Low SBP threshold  
 
-High HR threshold
+---
 
-Low SBP threshold
-
-for maximal predictive value.
-
-🔷 3. Agentic LLM Clinical Reasoning
-
+## 🔷 3. Agentic LLM Clinical Reasoning
 A Gemini-based agent generates:
+- Clinical interpretations  
+- Risk assessments  
+- Suggested actions  
 
-Clinical interpretations
+Forms a closed loop: **Perceive → Reason → Suggest**
 
-Risk assessments
+---
 
-Recommended next actions
+## 🔷 4. ICU-Ready Interpretability
+Doctors can clearly understand *why* the model gives a risk score.
 
-This forms a closed loop: Perceive → Reason → Suggest.
+---
 
-🔷 4. ICU-Ready Interpretability
-
-Doctors can understand WHY the model gives a risk score.
-
-🔷 5. Fully Reproducible Kaggle Notebook
-
+## 🔷 5. Fully Reproducible Kaggle Notebook
 End-to-end pipeline:
+- Load subset files  
+- Feature engineering  
+- Fuzzy scoring  
+- GA optimization  
+- LLM agent reasoning  
 
-Load subset files
+---
 
-Feature engineering
+# 🧠 Architecture
 
-Fuzzy scoring
+        ┌─────────────────────────────┐
+        │        Raw MIMIC-IV         │
+        │ Vitals | Labs | Notes | ICD │
+        └─────────────────────────────┘
+                      │
+                      ▼
+ ┌────────────────────────────────────────┐
+ │     Preprocessing & Feature Fusion     │
+ │  (HR/SBP/RR/Temp/SpO2 + Labs + Demo)   │
+ └────────────────────────────────────────┘
+                      │
+                      ▼
+ ┌────────────────────────────────────────┐
+ │       Fuzzy Logic Risk Scoring         │
+ │ (Soft abnormality: high HR, low SBP…)  │
+ └────────────────────────────────────────┘
+                      │
+                      ▼
+ ┌────────────────────────────────────────┐
+ │     Genetic Algorithm Optimization     │
+ │ (Tune HR/SBP fuzzy thresholds)         │
+ └────────────────────────────────────────┘
+                      │
+                      ▼
+ ┌────────────────────────────────────────┐
+ │        LLM Agentic Reasoning           │
+ │  “Explain risk + suggest next action”  │
+ └────────────────────────────────────────┘
+                      │
+                      ▼
+ ┌────────────────────────────────────────┐
+ │      Early Sepsis Risk Prediction      │
+ └────────────────────────────────────────┘
 
-GA optimization
+---
 
-LLM agent
+# 📂 Dataset Used
 
-🧠 Architecture
-            ┌─────────────────────────────┐
-            │        Raw MIMIC-IV         │
-            │ Vitals | Labs | Notes | ICD │
-            └─────────────────────────────┘
-                          │
-                          ▼
-     ┌────────────────────────────────────────┐
-     │     Preprocessing & Feature Fusion     │
-     │  (HR/SBP/RR/Temp/SpO2 + Labs + Demo)   │
-     └────────────────────────────────────────┘
-                          │
-                          ▼
-     ┌────────────────────────────────────────┐
-     │       Fuzzy Logic Risk Scoring         │
-     │ (Soft abnormality: high HR, low SBP…)  │
-     └────────────────────────────────────────┘
-                          │
-                          ▼
-     ┌────────────────────────────────────────┐
-     │     Genetic Algorithm Optimization     │
-     │ (Tune HR/SBP fuzzy thresholds)         │
-     └────────────────────────────────────────┘
-                          │
-                          ▼
-     ┌────────────────────────────────────────┐
-     │        LLM Agentic Reasoning           │
-     │  “Explain risk + suggest next action”  │
-     └────────────────────────────────────────┘
-                          │
-                          ▼
-     ┌────────────────────────────────────────┐
-     │      Early Sepsis Risk Prediction      │
-     └────────────────────────────────────────┘
+10k ICU-stay subset extracted from MIMIC-IV:
 
-📂 Dataset Used
+- `icustay_subset.csv`
+- `chartevents_filtered.csv` (vitals)
+- `labevents_filtered.csv` (labs)
+- `patients_subset.csv`
+- `admissions_subset.csv`
+- `diagnoses_withstayids.csv`
+- `discharge_notes_clean.csv`
+- `radiology_notes_clean.csv`
 
-10k ICU-stay subset derived from MIMIC-IV using BigQuery:
+---
 
-icustay_subset.csv
+# 🔬 Fuzzy Logic Model
 
-chartevents_filtered.csv (vitals)
+### **Input Variables**
+- HR_mean  
+- SBP_mean  
+- RR_mean  
+- SpO₂_mean  
 
-labevents_filtered.csv (labs)
+### **Membership Functions**
+- High HR  
+- Low SBP  
+- High RR  
+- Low SpO₂  
 
-patients_subset.csv
-
-admissions_subset.csv
-
-diagnoses_withstayids.csv
-
-discharge_notes_clean.csv
-
-radiology_notes_clean.csv
-
-🔬 Fuzzy Logic Model
-Input Variables:
-
-HR_mean
-
-SBP_mean
-
-RR_mean
-
-SpO₂_mean
-
-Membership Functions:
-
-High HR
-
-Low SBP
-
-High RR
-
-Low SpO₂
-
-Aggregation:
-
-Additive inference:
+### **Aggregation**
+Additive fuzzy inference:
 
 Risk = HR_high + SBP_low + RR_high + SpO2_low
 
-Defuzzification:
-
-Soft defuzzification using:
+### **Defuzzification**
+Soft defuzzification:
 
 fuzzy_score = tanh(aggregated_risk)
 
+Produces a crisp **0–1 sepsis risk score**.
 
-Returns a clean 0–1 risk score.
+---
 
-🧬 Genetic Algorithm (GA) Optimization
+# 🧬 Genetic Algorithm (GA) Optimization
 
 Optimizes fuzzy cutpoints:
 
-HR_high_cut
+- HR_high_cut  
+- SBP_low_cut  
 
-SBP_low_cut
-
-Uses AUROC as fitness.
-Final optimized parameters example:
-
-Best GA parameters: [118.36, 51.25]
-
-🤖 LLM Agent Component
-
-Given:
-
-vitals summary
-
-lab summary
-
-fuzzy_score
-
-clinical notes (optional)
-
-LLM generates:
-
-Clinical interpretation
-
-Risk narrative
-
-Suggested actions
+Uses **AUROC** as fitness.
 
 Example output:
+Best GA parameters: [118.36, 51.25]
 
-“The patient shows moderate tachycardia and low SBP. Recommend fluid assessment and lactate re-check.”
+---
 
-This forms an agentic AI loop.
+# 🤖 LLM Agent Component
 
-💻 How to Run (Kaggle)
+### **Inputs:**
+- Vital summaries  
+- Lab summaries  
+- Fuzzy score  
+- Clinical notes (optional)  
 
-Upload your MIMIC subset files to /kaggle/input
+### **Outputs:**
+- Clinical interpretation  
+- Risk narrative  
+- Suggested actions  
 
-Open the provided notebook
+**Example:**
+> “The patient shows moderate tachycardia and low SBP. Recommend fluid assessment and lactate re-check.”
 
-Run sequentially:
+This creates a full **agentic loop**.
 
-Load data
+---
 
-Preprocess
+# 💻 How to Run (Kaggle)
 
-Fuzzy Logic
+1. Upload your MIMIC subset files to `/kaggle/input`  
+2. Open the notebook  
+3. Run these steps:
+   - Load data  
+   - Preprocess  
+   - Fuzzy Logic  
+   - GA Optimization  
+   - LLM Agent  
+4. Retrieve final risk score + explanation  
 
-GA Optimization
+---
 
-LLM Agent
+# 📊 Outputs
 
-Get final risk score + explanation
+- `fuzzy_score` (0–1)  
+- GA-optimized thresholds  
+- LLM explanation  
+- Risk severity summary  
 
-📊 Outputs
+---
 
-fuzzy_score (0–1)
+# ✨ Key Contributions
 
-GA-optimized thresholds
+✔ Novel agentic architecture  
+✔ Combined **Fuzzy Logic + GA + LLM**  
+✔ Transparent early-warning scoring  
+✔ Real-world medical interpretability  
+✔ Multimodal clinical data fusion  
+✔ Fully reproducible  
 
-LLM-generated explanation
+---
 
-Risk assessment summary
+# 🚀 Future Work
 
-✨ Key Contributions
+- Add Sepsis-3 label extraction  
+- Integrate real-time streaming vitals  
+- Build transformer-based note embeddings  
+- Expand fuzzy rule base  
+- Develop ICU bedside dashboard  
 
-✔ Novel agentic architecture
-✔ Combined fuzzy logic + GA + LLM
-✔ Transparent early-warning scoring
-✔ Real-world clinical interpretability
-✔ Multimodal MIMIC-IV fusion
-✔ Fully reproducible pipeline
+---
 
-🚀 Future Work
+# ❤️ Acknowledgements
 
-Add proper Sepsis-3 label extraction
+This project uses data from the **MIMIC-IV** database (MIT-PhysioNet).  
+CITI certification and MIMIC-IV access approval required.
 
-Integrate real-time streaming vitals
+---
 
-Train transformer-based note embeddings
+# 📘 License
 
-Expand fuzzy rules / more membership functions
-
-Build bedside decision-support dashboard
-
-❤️ Acknowledgements
-
-This project uses data from the MIMIC-IV database (MIT-PhysioNet).
-Ensure proper credentialing & CITI training before use.
-
-📘 License
-
-For academic and research use under MIMIC-IV dataset restrictions.
+Academic & research use under MIMIC-IV data sharing restrictions.
