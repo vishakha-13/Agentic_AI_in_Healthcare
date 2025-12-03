@@ -1,4 +1,3 @@
-.
 
 🌟 Agentic AI for Early Sepsis Detection in ICU (MIMIC-IV)
 Multimodal • Fuzzy Logic • GA Optimization • LLM Reasoning
